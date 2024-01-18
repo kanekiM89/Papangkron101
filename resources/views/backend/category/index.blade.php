@@ -24,7 +24,7 @@
                                   <td>{{ $cat ->updated_at }}</td>
                                   <td>
                                     <a href="{{ url('admin/category/edit/'.$cat->category_id)}}"><i class='bx bxs-edit'></i></a>
-                                    <a href="#"><i class='bx bx-trash'></i></a>
+                                    <a href="{{url('admin/category/delete/'.$cat->category_id)}}"><i class='bx bx-trash'></i></a>
                                   </td>
                                   </tr>
                                   @endforeach

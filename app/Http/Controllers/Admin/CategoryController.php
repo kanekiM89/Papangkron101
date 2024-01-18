@@ -39,4 +39,20 @@ class CategoryController extends Controller
         alert()->success('บันทึกข้อมูลสำเร็จ','ข้อมูลนี้ถูกบันทึกแล้ว');
         return redirect()->route('c.index');
     }
+
+    public function update(Request $request, $category_id){
+        $category = Category::find($category_id);
+        $category->name = $request->editname;
+        $category->update();
+        alert()->success('แก้ไขข้อมูลสำเร็จ','ข้อมูลนี้ถูกบันทึกแล้ว');
+        return redirect()->route('c.index');
+        
+    }
+
+    public function delete($category_id){
+        $category = Category::find($category_id);
+        $category->delete();
+        alert()->success('ลบข้อมูลสำเร็จ', 'ข้อมูลนี้ถูกลบแล้ว');
+        return redirect()->route('c.index');
+    }
 }

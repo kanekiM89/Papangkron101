@@ -42,6 +42,8 @@ route::get('admin/category/index',[CategoryController::class,'index'])->name('c.
 route::get('admin/category/createfrom',[CategoryController::class,'createfrom'])->name('c.from');
 route::get('admin/category/edit/{id}',[CategoryController::class,'edit']);
 route::post('admin/category/insert',[CategoryController::class,'insert']);
+route::post('admin/category/update/{id}',[CategoryController::class,'update']);
+route::get('admin/category/delete/{id}',[CategoryController::class,'delete']);
 
 
 
