@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,5 +51,11 @@ route::get('admin/category/delete/{id}',[CategoryController::class,'delete']);
 //menu Product
 route::get('admin/product/index',[ProductController::class,'index'])->name('p.index');
 route::get('admin/product/createfrom',[ProductController::class,'createfrom'])->name('p.from');
+route::post('admin/product/insert',[ProductController::class, 'insert']);
+route::get('admin/product/edit/{id}',[ProductController::class,'edit']);
+route::post('admin/product/update/{id}',[ProductController::class,'update']);
+route::get('admin/product/delete/{id}',[ProductController::class,'delete']);
+
+
 
 

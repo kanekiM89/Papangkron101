@@ -170,6 +170,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //image
+        Intervention\Image\ImageServiceProvider::class
+
     ])->toArray(),
 
     /*
@@ -187,6 +191,8 @@ return [
         // 'Example' => App\Facades\Example::class,
         //Sweetalert แจ้งเตือน
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
     ])->toArray(),
 
 ];
