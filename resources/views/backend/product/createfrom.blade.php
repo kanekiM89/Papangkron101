@@ -52,9 +52,13 @@
                                     <label for="exampleFormControlSelect1" class="form-label">Category</label>
                                     <select class="form-select" name="category_id" id="exampleFormControlSelect1" aria-label="Default select example">
                                       <option selected>กรุณาเลือกประเภทสินค้า</option>
-                                      <option value="1">โทรศัพท์มือถือ</option>
-                                      <option value="2">โน๊ตบุ๊ค</option>
-                                      <option value="3">คอมพิวเตอร์ตั้งโต๊ะ</option>
+
+                                      @foreach($category as $cat)
+
+                                      <option value="{{ $cat -> category_id}}">
+                                        {{$cat -> name}}
+                                      </option>
+                                      @endforeach
                                     </select>
 
 
@@ -63,9 +67,11 @@
                                         <input type="file" name="image" class="form-control" id="inputGroupFile02" />
                                         <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                       </div>
-                                      @error('image')
+                                      <div class="mt-2">
+                                        @error('image')
                                       <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                                        @enderror
+                                      </div>
 
                                     <input type="submit" value="บันทึก" class="btn btn-primary mt-3">
                                     <a href="{{ route('p.index')}}" class="btn btn-danger mt-3 mx-2">ย้อนกลับ</a>

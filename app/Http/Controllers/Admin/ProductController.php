@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -18,12 +19,14 @@ class ProductController extends Controller
     }
 
     public function createfrom(){
-        return view('backend.product.createfrom');
+        $category = Category::all();
+        return view('backend.product.createfrom',compact('category'));
     }
 
     public function edit($product_id){
         $pro = Product::find($product_id);
-        return view('backend.product.edit',compact('pro'));
+        $cat = Category::all();
+        return view('backend.product.edit',compact('pro','cat'));
     }
 
     public function insert(Request $request){
@@ -89,8 +92,6 @@ class ProductController extends Controller
             $request->file('image')->move(public_path().'/backend/product/',$filename);
             Image::make(public_path().'/backend/product/'.$filename)->resize(50, 45)->save(public_path(). '/backend/product/resize/'.$filename);
             $product->image = $filename;
-        }else{
-            $product->image = 'no_image.jpg';
         }
         $product->update();
         alert()->success('แก้ไขข้อมูลสำเร็จ','ข้อมูลนี้ถูกแก้ไขแล้ว');

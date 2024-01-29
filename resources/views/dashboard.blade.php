@@ -15,7 +15,7 @@
 
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">User</span>
-                                                <h3 class="card-title mb-2"> 2 คน</h3>
+                                                <h3 class="card-title mb-2">{{$u -> count() }}  คน</h3>
                                             </div>
                                         </div>
 
@@ -33,7 +33,7 @@
 
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">Category</span>
-                                                <h3 class="card-title mb-2"> 5 ประเภท</h3>
+                                                <h3 class="card-title mb-2"> {{$c -> count() }} ประเภท</h3>
                                             </div>
                                         </div>
 
@@ -51,7 +51,7 @@
 
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">Product</span>
-                                                <h3 class="card-title mb-2"> 10 ชิ้น</h3>
+                                                <h3 class="card-title mb-2"> {{$p -> count() }} ชิ้น</h3>
                                             </div>
                                         </div>
 
